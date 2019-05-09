@@ -9,15 +9,15 @@
 <view class='news-wrapper'>
   <!-- 热门新闻 (暂定为列表第一条) -->
   <view data-id="{{newsList[0].id}}" class='topNews-wrapper' bindtap="onTapNews">
-      <image class="topNews-bg" src="{{newsList[0].img}}" mode="aspectFill"></image>
+      <image class="topNews-bg" src="{{newsList[0].imgPath}}" mode="aspectFill"></image>
       <view class='topNews'>
-        <image class='topNews-pic' src="{{newsList[0].img}}" mode="aspectFill"></image>
+        <image class='topNews-pic' src="{{newsList[0].imgPath}}" mode="aspectFill"></image>
         <view class='topTips'>热门</view>
         <view class='topNews-text'>
           <view class='topNews-title'>{{newsList[0].title}}</view>
           <view class='topNews-publication'>
             <view class='news-source'>{{newsList[0].source}}</view>
-            <view class='news-date'>{{newsList[0].date}}</view>
+            <view>{{newsList[0].date}}</view>
           </view>
         </view>
       </view>  
@@ -28,10 +28,10 @@
         <view class='news-title'>{{item.title}}</view>
         <view class='news-publication'>
           <view class='news-source'>{{item.source}}</view>
-          <view class='news-date'>{{item.date}}</view>
+          <view>{{item.date}}</view>
         </view>  
       </view>
-      <image class='news-pic' src="{{item.img}}" mode="aspectFill"></image>
+      <image class='news-pic' src="{{item.imgPath}}" mode="aspectFill"></image>
     </view> 
 </view>
  

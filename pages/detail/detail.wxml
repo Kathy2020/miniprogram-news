@@ -1,2 +1,18 @@
 <!--pages/detail/detail.wxml-->
+<view class='news-wrapper'>
+  <view class="news-title">{{title}}</view>
+  <view class="desc-wrapper">
+    <view class='source'>{{source}}</view>
+    <view>{{date}}</view>
+    <view class='read-count'>阅读 {{readCount}}</view>
+  </view>
+  <view class="content-wrapper">
+    <view wx:for="{{content}}" class='content-text'>
+      <view wx:if="{{item.type == 'p'}}" class='para-text'>{{item.text}}</view>
+      <view wx:elif="{{item.type == 'strong'}}" class="strong-text">{{item.text}}</view>
+      <image wx:elif="{{item.type == 'image'}}" class="news-img" src="{{item.src}}" mode='aspectFill'></image>
+    </view>
+  </view>
+  
+</view>
 

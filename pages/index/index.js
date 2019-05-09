@@ -55,13 +55,14 @@ Page({
         title: result[i].title,
         source: result[i].source,
         date: `${date.getHours()}:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}`,
-        img: result[i].firstImage
+        imgPath: result[i].firstImage
       })
     }
     this.setData({
       newsList: newsList
     })
   },
+  //选择新闻类别
   onTapType(event){
     let type = event.currentTarget.dataset.item
     this.setData({
@@ -70,12 +71,11 @@ Page({
     })
     this.getNews()
   },
+  //进入详情页
   onTapNews(event){
-    console.log(event)
     let id = event.currentTarget.dataset.id
-    console.log(id)
     wx.navigateTo({
-      url: 'pages/detail/detail?id=' + id,
+      url: '/pages/detail/detail?id=' + id,
     })
   }
 })
