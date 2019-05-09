@@ -1,0 +1,36 @@
+<!-- 导航栏 -->
+<view class="nav-bar">
+  <view wx:for="{{newsType}}" class='newsType-item'>
+    <view class='newsTypeText'>{{item}}</view>
+    <view class='active-line'></view>
+  </view>
+</view>
+
+<view wx:for="{{newsList}}">
+ <!-- 热门新闻 -->
+  <view wx:if="{{index==0}}" class='topNews-wrapper'>
+    <image class="topNews-bg" src="{{item.img}}" mode="aspectFill"></image>
+    <view class='topNews'>
+      <image class='topNews-pic' src="{{item.img}}" mode="aspectFill"></image>
+      <view class='topTips'>热门</view>
+      <view class='topNews-text'>
+        <view class='topNews-title'>{{item.title}}</view>
+        <view class='topNews-publication'>
+          <view class='news-source'>{{item.source}}</view>
+          <view class='news-date'>{{item.date}}</view>
+        </view>
+      </view>
+    </view>  
+  </view>
+  <!-- 新闻列表 -->
+  <view wx:else class="news-list">
+    <view class='news-text'>
+      <view class='news-title'>{{item.title}}</view>
+      <view class='news-publication'>
+        <view class='news-source'>{{item.source}}</view>
+        <view class='news-date'>{{item.date}}</view>
+      </view>  
+    </view>
+    <image class='news-pic' src="{{item.img}}" mode="aspectFill"></image>
+  </view> 
+</view>
