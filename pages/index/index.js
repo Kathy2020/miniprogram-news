@@ -1,5 +1,5 @@
 //index.js
-const App = getApp()
+const app = getApp()
 
 const typeMap = {
   '国内': 'gn',
@@ -16,7 +16,9 @@ Page({
     typeList: ['国内','国际','财经','娱乐','军事','体育','其它'],
     type: 'gn',
     mapType: '国内',
-    newsList: []
+    newsList: [],
+    statusBarHeight: app.globalData.statusBarHeight,
+    titleBarHeight: app.globalData.titleBarHeight
   },
   onLoad(){
     this.getNews()

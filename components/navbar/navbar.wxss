@@ -1,0 +1,51 @@
+/* components/navbar/navbar.wxss */
+
+.navbar-wrapper {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+.homePage{
+  color: #fff;
+  background-color: #319bde;
+}
+
+.detailPage{
+  color: #000;
+  background-color: #fff;
+}
+
+.navbar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-title{
+  flex-grow: 1;
+  font-size: 34rpx; 
+  font-weight: bold;
+  margin-left: 20rpx;
+}
+
+.back-icon{
+  width: 48rpx;
+  height: 48rpx;
+  margin-left: 20rpx;
+}
+ 
+.title-icon {
+  width: 48rpx;
+  height: 48rpx;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-left: 20rpx;
+}
+
+.nav-line{
+  width: 100%;
+  border-bottom: 1rpx solid #319bde;
+}

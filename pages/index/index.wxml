@@ -1,13 +1,17 @@
+<!-- 自定义小程序状态栏 -->
+<navbar navTitle="快看·资讯"></navbar>
+
 <!-- 导航栏 -->
-<view class="nav-bar">
+<view class="news-bar" style="margin-top:{{statusBarHeight + titleBarHeight}}px">
   <view wx:for="{{typeList}}" data-item="{{item}}" class="newsType-item {{item==mapType ? 'is-active' : ''}}" bindtap="onTapType">
     <view class='newsTypeText'>{{item}}</view>
     <view class="active-line {{item==mapType ? 'is-active-line' : ''}}"></view>
   </view>
 </view>
+
 <!-- 新闻栏 -->
-<view class='news-wrapper'>
-  <!-- 热门新闻 (暂定为列表第一条) -->
+<view class="news-wrapper">
+  <!-- 热门新闻 -->
   <view data-id="{{newsList[0].id}}" class='topNews-wrapper' bindtap="onTapNews">
       <image class="topNews-bg" src="{{newsList[0].imgPath}}" mode="aspectFill"></image>
       <view class='topNews'>
@@ -22,6 +26,7 @@
         </view>
       </view>  
     </view>
+
   <!-- 新闻列表 -->
   <view wx:for="{{newsList}}" wx:if="{{index>0}}" data-id="{{item.id}}" class="news-item" bindtap="onTapNews">
       <view class='news-text'>
@@ -31,7 +36,7 @@
           <view>{{item.date}}</view>
         </view>  
       </view>
-      <image class='news-pic' src="{{item.imgPath}}" mode="aspectFill"></image>
-    </view> 
+      <image class='news-pic' src="{{item.imgPath ? item.imgPath : '/images/default.jpg'}}" mode="aspectFill"></image>
+  </view> 
 </view>
  

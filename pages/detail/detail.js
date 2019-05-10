@@ -1,4 +1,6 @@
 // pages/detail/detail.js
+const app = getApp()
+
 Page({
   data: {
     id: '',
@@ -6,7 +8,9 @@ Page({
     date: '',
     source: '',
     content: [],
-    readCount: '0'
+    readCount: '0',
+    statusBarHeight: app.globalData.statusBarHeight,
+    titleBarHeight: app.globalData.titleBarHeight
   },
 
   onLoad: function (options) {
@@ -15,8 +19,13 @@ Page({
       })
       this.getDetail()
   },
+  onPullDownRefresh() {
+    this.getDetail(() => {
+      wx.stopPullDownRefresh()
+    })
+  },
 
-  getDetail(){
+  getDetail(callback){
     wx.request({
       url: 'https://test-miniprogram.com/api/news/detail',
       data: {
@@ -24,7 +33,6 @@ Page({
       },
       success: res => {
         let result = res.data.result
-        console.log(result)
         let date = new Date(result.date) 
         this.setData({
           title:result.title,
@@ -33,6 +41,9 @@ Page({
           content: result.content,
           readCount: result.readCount
         })
+      },
+      complete: () => {
+        callback && callback()
       }
     })  
   }

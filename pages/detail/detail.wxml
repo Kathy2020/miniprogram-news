@@ -1,18 +1,20 @@
-<!--pages/detail/detail.wxml-->
-<view class='news-wrapper'>
-  <view class="news-title">{{title}}</view>
+<!-- 自定义小程序状态栏 -->
+<navbar title="快看·资讯"></navbar>
+
+<!-- 新闻内容 -->
+<view class='news-wrapper'style="margin-top:{{statusBarHeight + titleBarHeight}}px">
+  <text class="news-title">{{title}}</text>
   <view class="desc-wrapper">
     <view class='source'>{{source}}</view>
     <view>{{date}}</view>
     <view class='read-count'>阅读 {{readCount}}</view>
   </view>
   <view class="content-wrapper">
-    <view wx:for="{{content}}" class='content-text'>
-      <view wx:if="{{item.type == 'p'}}" class='para-text'>{{item.text}}</view>
-      <view wx:elif="{{item.type == 'strong'}}" class="strong-text">{{item.text}}</view>
-      <image wx:elif="{{item.type == 'image'}}" class="news-img" src="{{item.src}}" mode='aspectFill'></image>
+    <view wx:for="{{content}}" class='content-item'>
+      <text wx:if="{{item.type == 'p'}}" class='content-p'>{{item.text}}</text>
+      <text wx:elif="{{item.type == 'strong'}}" class="content-strong">{{item.text}}</text>
+      <image wx:elif="{{item.type == 'image'}}" class="content-image" src="{{item.src}}" mode='aspectFill'></image>
     </view>
   </view>
-  
 </view>
 

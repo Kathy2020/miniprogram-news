@@ -35,20 +35,21 @@
   margin-top: 70rpx;
 }
 
-.content-text{
+.content-item{
   margin-top:30rpx;
 }
 
-.para-text{
-  text-indent: 1.8rem;
+.content-p{
+  display: inline-block;
+  text-indent: 1.7rem;
 }
 
-.strong-text{
+.content-strong{
   font-weight: bold;
   margin: 40rpx auto;
 }
 
-.news-img{
+.content-image{
   width:670rpx;
   margin: 40rpx auto;
 }

@@ -1,0 +1,10 @@
+<!--components/navbar/navbar.wxml-->
+<view class="navbar-wrapper {{showHome ? 'homePage' :'detailPage'}}">
+  <view style="height:{{statusBarHeight}}px"></view>
+  <view class="navbar"  style="height:{{titleBarHeight}}px">
+    <image wx:if="{{showHome}}" class="title-icon" src="/images/title-icon.png" mode="aspectFill"></image>
+    <image wx:if="{{!showHome}}" class="back-icon" src="/images/back-icon.png" mode="aspectFill" bindtap="navBack"></image>    
+    <view class="navbar-title">{{navTitle}}</view>
+  </view>
+  <view class="nav-line"></view>
+</view>
