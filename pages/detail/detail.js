@@ -19,13 +19,8 @@ Page({
       })
       this.getDetail()
   },
-  onPullDownRefresh() {
-    this.getDetail(() => {
-      wx.stopPullDownRefresh()
-    })
-  },
 
-  getDetail(callback){
+  getDetail(){
     wx.request({
       url: 'https://test-miniprogram.com/api/news/detail',
       data: {
@@ -36,14 +31,11 @@ Page({
         let date = new Date(result.date) 
         this.setData({
           title:result.title,
-          date: `${date.getHours()}:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}`,
+          date: app.dateFormat(date),
           source: result.source,
           content: result.content,
           readCount: result.readCount
         })
-      },
-      complete: () => {
-        callback && callback()
       }
     })  
   }

@@ -3,7 +3,7 @@
 
 <!-- 导航栏 -->
 <view class="news-bar" style="margin-top:{{statusBarHeight + titleBarHeight}}px">
-  <view wx:for="{{typeList}}" data-item="{{item}}" class="newsType-item {{item==mapType ? 'is-active' : ''}}" bindtap="onTapType">
+  <view wx:for="{{typeList}}" wx:key="*this" data-item="{{item}}" class="newsType-item {{item==mapType ? 'is-active' : ''}}" bindtap="onTapType">
     <view class='newsTypeText'>{{item}}</view>
     <view class="active-line {{item==mapType ? 'is-active-line' : ''}}"></view>
   </view>
@@ -28,7 +28,7 @@
     </view>
 
   <!-- 新闻列表 -->
-  <view wx:for="{{newsList}}" wx:if="{{index>0}}" data-id="{{item.id}}" class="news-item" bindtap="onTapNews">
+  <view wx:for="{{newsList}}" wx:key="id"  wx:if="{{index>0}}" data-id="{{item.id}}" class="news-item" bindtap="onTapNews">
       <view class='news-text'>
         <view class='news-title'>{{item.title}}</view>
         <view class='news-publication'>

@@ -10,8 +10,11 @@ App({
       }
     })
   },
-  "globalData": {
+  globalData: {
     "statusBarHeight": 0,
     "titleBarHeight": 0
+  },
+  dateFormat:date=>{
+    return `${date.getHours()}:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}`
   }
 })

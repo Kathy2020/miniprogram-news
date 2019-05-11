@@ -56,7 +56,7 @@ Page({
         id: result[i].id,
         title: result[i].title,
         source: result[i].source,
-        date: `${date.getHours()}:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}`,
+        date: app.dateFormat(date),
         imgPath: result[i].firstImage
       })
     }
@@ -67,11 +67,13 @@ Page({
   //选择新闻类别
   onTapType(event){
     let type = event.currentTarget.dataset.item
-    this.setData({
-      type: typeMap[type],
-      mapType: type
-    })
-    this.getNews()
+    if(typeMap[type]!== this.data.type){
+      this.setData({
+        type: typeMap[type],
+        mapType: type
+      })
+      this.getNews()
+    }
   },
   //进入详情页
   onTapNews(event){

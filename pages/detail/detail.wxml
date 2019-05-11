@@ -10,7 +10,7 @@
     <view class='read-count'>阅读 {{readCount}}</view>
   </view>
   <view class="content-wrapper">
-    <view wx:for="{{content}}" class='content-item'>
+    <view wx:for="{{content}}" wx:key="content.id" class='content-item'>
       <text wx:if="{{item.type == 'p'}}" class='content-p'>{{item.text}}</text>
       <text wx:elif="{{item.type == 'strong'}}" class="content-strong">{{item.text}}</text>
       <image wx:elif="{{item.type == 'image'}}" class="content-image" src="{{item.src}}" mode='aspectFill'></image>

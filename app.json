@@ -8,7 +8,6 @@
     "navigationBarBackgroundColor": "#319bde",
     "navigationBarTitleText": "资讯",
     "navigationBarTextStyle": "white",
-    "enablePullDownRefresh": true,
     "navigationStyle": "custom"
   },
   "sitemapLocation": "sitemap.json"
